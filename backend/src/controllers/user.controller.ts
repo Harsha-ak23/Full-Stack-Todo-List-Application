@@ -79,20 +79,3 @@ export const updateUserController = async (
   }
 };
 
-export const logOutController = async (
-  req: AuthRequest,
-  res: Response
-): Promise<any> => {
-  try {
-    // For JWT logout (stateless), just clear token on client
-    return res.status(200).json({
-      success: true,
-      message: "User logged out successfully",
-    });
-  } catch (error: any) {
-    console.error("Server Error in Logout API:", error.message);
-    return res
-      .status(500)
-      .json({ success: false, message: "Internal Server Error" });
-  }
-};
